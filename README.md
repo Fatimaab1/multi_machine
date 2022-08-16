@@ -19,11 +19,11 @@ Creating two virtual machines called App and DB
 ```
 Vagrant.configure("2") do |config|
 
-    config.vm.define "app" do |app|
-        app.vm.box = "ubuntu/bionic64"
-        app.vm.network "private_network", ip: "192.168.56.10"
-        app.vm.synced_folder ".", "/home/vagrant/app"
-        app.vm.provision :shell, path: "provision.sh"
+    config.vm.define "app" do |app| # this created a virtual machine called app
+        app.vm.box = "ubuntu/bionic64" # sets up linux 
+        app.vm.network "private_network", ip: "192.168.56.10" # nginx web server for app virtual machine network setup 
+        app.vm.synced_folder ".", "/home/vagrant/app" # this syncs data from LH
+        app.vm.provision :shell, path: "provision.sh" # shell provisioner for script and provision.sh location path 
 
     end
 
@@ -89,8 +89,38 @@ DB_HOST=mongodb://192.168.56.151:27017/posts
 - Then run npm start and you should see this message 'Your app is ready and listening on port 3000'
 - Go to your browser and your app should be running 
 
+### Reverse Proxy 
 
+- Create a new file and name it using `sudo nano reverse_proxy`
+- Inisde the text editor write the following code:
+```
+server {
+        listen 80;
+        listen [::]:80;
 
+        access_log /var/log/nginx/reverse-access.log;
+        error_log /var/log/nginx/reverse-error.log;
+
+        location / {
+                    proxy_pass http://localhost:3000;
+  }
+}
+```
+- You then need to add to your provision.sh file using the following commands:
+```
+sudo cp -f app/app/proxy_file /etc/nginx/sites-available/default
+sudo systemctl restart nginx
+
+```
+- Once provision file is saved exit the current location
+- Inside your local machine run `vagrant destory`
+- `vagrant up`
+- You now need to go back into your app virtual machine using `vagrant ssh app`
+- run `cd app` x2
+- Then run `npm install`
+- `npm start`
+- You should see the followiing message 'Your app is ready and listening on port 3000'
+- Now check refresh your browser (add http:// if neccessary)
 
 
 
