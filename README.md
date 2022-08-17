@@ -78,8 +78,7 @@ DB_HOST=mongodb://192.168.56.151:27017/posts
 <img width="374" alt="Screenshot 2022-08-16 at 12 16 02" src="https://user-images.githubusercontent.com/69306840/184867757-0e07a5b7-ceff-484a-915f-a36eb77b9e1f.png">
 
 ### Nginx as reverse proxy
-- Firstly ensure you are inside your vm. 
-- Once inside run the following commands:
+- Run the following commands:
 - `sudo nano /etc/nginx/sites-available/default`- 
 - The file will then open for editing
 - Within the server block you will find `location/` block, in here you need to replace the content inide with `proxy_pass http://localhost:8080;` 
