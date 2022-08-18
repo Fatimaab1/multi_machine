@@ -9,7 +9,8 @@ Development Enviornment is a set of tools and functionalities that enable a prog
 
 The benefits of Dev Env is that is that developers can make changes to the code in a controlled setting without impacting the end users.
 
-<img width="550" alt="Screenshot 2022-08-16 at 17 10 03" src="https://user-images.githubusercontent.com/69306840/184935989-b8a24748-c9dd-4694-aa46-36bbb65f7b68.png">
+<img width="600" alt="Screenshot 2022-08-18 at 09 59 55" src="https://user-images.githubusercontent.com/69306840/185355752-a8bb6f0f-a28e-4596-b15d-3f93d6312a7b.png">
+
 
 ### Multi Machine
 
