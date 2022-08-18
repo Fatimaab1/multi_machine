@@ -75,7 +75,8 @@ DB_HOST=mongodb://192.168.56.151:27017/posts
 - Next enter the following command `source .bashrc`
 - Result
 
-<img width="374" alt="Screenshot 2022-08-16 at 12 16 02" src="https://user-images.githubusercontent.com/69306840/184867757-0e07a5b7-ceff-484a-915f-a36eb77b9e1f.png">
+<img width="600" alt="Screenshot 2022-08-18 at 09 59 55" src="https://user-images.githubusercontent.com/69306840/185355473-83065f95-1afd-4a6f-99b5-9e5e8c11e19d.png">
+
 
 ### Nginx as reverse proxy
 - Run the following commands:
